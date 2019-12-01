@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyj.product.Dao.ProductMapper">
+    <select id="selectAll" resultType="Product">
+        select * from t_product;
+    </select>
+    <select id="queryProductList" resultType="Product">
+        select * from t_product limit #{start},#{rows};
+    </select>
+    <select id="selectCount" resultType="int">
+        select count(*) from t_product;
+    </select>
+    <select id="selectOne" parameterType="String" resultType="Product">
+        select product_id,product_name,addr_id from t_product where product_id=#{productId};
+    </select>
+</mapper>

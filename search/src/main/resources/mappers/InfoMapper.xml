@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyj.search.Dao.InfoMapper">
+    <select id="getAddrName" parameterType="int" resultType="String">
+        select addr_name from t_addrinfo where addr_id=#{addrId};
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/hizyj/configdemo.git
+          username: 346551714@qq.com
+          password: xzx123SB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9999/eureka
+

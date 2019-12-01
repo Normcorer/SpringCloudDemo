@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:10000/
+      profile: dev
+  application:
+    name: searchService-config
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+
+
+

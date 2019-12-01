@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="layui/css/layui.css"  media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <script src="jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="layui-inline">
+      <label class="layui-form-label">输入商品ID</label>
+      <div class="layui-input-inline">
+        <input type="text" name="phone" id="pid" lay-verify="required|phone" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <button type="button" class="layui-btn" id="query">查询</button>
+   
+<table class="layui-hide" id="demo"></table>
+               
+          
+<script src="layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+
+</script>
+<script>
+	$(function(){
+		$("#query").click(function(){
+			var a = $("#pid").val();
+			layui.use('table', function(){
+  var table = layui.table;
+  //展示已知数据
+  table.render({
+    elem: '#demo'
+    ,url: 'http://localhost:10002/test?productId='+a //数据接口
+    ,cols: [[ //标题栏
+      {field: 'productId', title: '商品ID', width: 290, sort: true}
+      ,{field: 'productName', title: '商品名称', width: 576}
+      ,{field: 'addrId', title: '溯源地ID', minWidth: 120}
+      ,{field: 'addrName', title: '溯源地名称', minWidth: 120}
+    ]]
+    ,text: {
+                    none: '暂无相关数据！'//默认无数据
+                }
+    ,request: {
+    	
+    }
+    ,parseData:function(res){
+     	console.log(res);
+     	return{
+     		"code":0
+     		,"msg":""
+     		,"count":10
+     		,"data":[res]
+     	};
+     }
+    //,skin: 'line' //表格风格
+    ,even: true
+    //,page: true //是否显示分页
+    //,limits: [5, 7, 10]
+    //,limit: 5 //每页默认显示的数量
+  });
+  
+});
+
+		})
+	});
+</script>
+
+</body>
+</html>

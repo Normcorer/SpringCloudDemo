@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:10000/
+      profile: dev
+  application:
+    name: productService-config
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+
+
