@@ -21,11 +21,17 @@ https://app.yinxiang.com/shard/s37/nl/26049350/2f94c443-5485-4fbe-8587-005df38f1
 #项目文件
 
 clouddemo 静态资源layui
+
 common pojo
+
 product 商品服务
+
 search 溯源查询服务
+
 EurekaServer 注册中心
+
 ConfigServer 配置中心
+
 
 #项目运行流程
 
